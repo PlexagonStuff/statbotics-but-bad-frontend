@@ -15,7 +15,7 @@ export function Search(){
       value={searchValue}
       onChange={handleInputChange}
       placeholder="Search..."
-      className='appearance-none rounded-md mr-20 text-sm font-thin tracking-wide text-zinc-200 p-1.5 ring-2 caret-cyan-400 ring-cyan-400 outline-none bg-zinc-700 peer'
+      className='appearance-none rounded-md mr-20 text-sm font-thin tracking-wide text-zinc-200 p-1.5 ring-2 caret-cyan-400 ring-cyan-400 outline-none bg-zinc-900 peer'
     />
     <div className={'flex absolute group-hover:visible invisible'}>
       <Dropdown searchText={searchValue}/>
