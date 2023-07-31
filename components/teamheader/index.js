@@ -6,7 +6,7 @@ import useSWR from "swr";
 const fetcher = (url) => fetch(url,).then((res) => res.json());
 
 
-function teamColor(url) {
+function useTeamColor(url) {
     const { data, error, isLoading } = useSWR(
     url,
     fetcher
@@ -15,13 +15,24 @@ function teamColor(url) {
     if (isLoading) return "#e4e4e7";
     return data["color"];
 }
-function teamRecord(url) {
+
+function useTeamRecord(url) {
     const { data, error, isLoading } = useSWR(
     url,
     fetcher
     );
     if (error) return {"wins":0,"losses":0,"ties":0};
     if (isLoading) return {"wins":0,"losses":0,"ties":0};
+    return data;
+}
+
+function useTeamAwards(url) {
+    const { data, error, isLoading } = useSWR(
+    url,
+    fetcher
+    );
+    if (error) return {"awards":0,"blueBanners":0};
+    if (isLoading) return {"awards":0,"blueBanners":0};
     return data;
 }
 
@@ -42,7 +53,7 @@ export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto, numOfBl
         height = {40}
         alt="This sure is a logo"
         />
-        <span style={{color: teamColor("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/icon/color")}} className="text-3xl">{teamNumber}-{teamName}</span>
+        <span style={{color: useTeamColor("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/icon/color")}} className="text-3xl">{teamNumber}-{teamName}</span>
         </p>
         <div className="flex space-x-10">
         <img
@@ -51,9 +62,9 @@ export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto, numOfBl
         alt="This sure is a robot photo"
         />
         <ul className="list-none text-zinc-200 mt-6 text-2xl space-y-20">
-            <li>Record: {teamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["wins"]}-{teamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["losses"]}-{teamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["ties"]} </li>
-            <li>Awards: {numOfTeamAwards}  </li>
-            <li>Blue Banners: {numOfBlueBanners} </li>
+            <li>Record: {useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["wins"]}-{useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["losses"]}-{useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["ties"]} </li>
+            <li>Awards: {useTeamAwards("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/awards")["awards"]}  </li>
+            <li>Blue Banners: {useTeamAwards("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/awards")["blueBanners"]} </li>
         </ul>
         </div>
         </div>
