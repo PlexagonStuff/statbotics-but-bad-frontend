@@ -37,7 +37,7 @@ function useTeamAwards(url) {
 }
 
 
-export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto, numOfBlueBanners, numOfTeamAwards}) {
+export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto}) {
     const teamKey = "frc"+teamNumber
     
 

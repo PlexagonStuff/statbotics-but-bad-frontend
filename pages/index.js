@@ -1,5 +1,6 @@
 import React from "react";
 import useSWR from "swr";
+import Head from "next/head.js";
 import axios from "axios";
 import {Navbar} from "@/components/navbar"
 
@@ -7,6 +8,10 @@ const fetcher = url => axios.get(url).then(res => res.data)
 export default function Index() {
   return (
   <div>
+  <Head>
+        <link rel="icon" type="image/x-icon" href={"logo.png"}/>
+        <title>smh</title>
+  </Head>
   <Navbar/>
   </div>)
 //     const { data, error, isLoading } = useSWR(
