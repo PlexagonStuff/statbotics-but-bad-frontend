@@ -4,12 +4,31 @@ import Head from "next/head.js";
 import {useRouter} from "next/router"
 import {getDataFromURL, getDataFromURLHeaders} from "../../../utils/urlfetch.js"
 import { TeamHeader } from "@/components/teamheader/index.js";
+import { EventScreen } from "@/components/eventscreen/index.js";
 
 export default function Team(props) {
     // const router = useRouter();
     // const team = router.query["team"]
     // console.log(team)
-    console.log(props.imageData)
+    console.log(props.imageData);
+    console.log(props.teamData);
+    console.log(Array.isArray(props.teamData));
+    const doesThisWork = Array.from(props.teamData);
+    console.log(Array.isArray(doesThisWork))
+   /* const teamStuff = doesThisWork.map((event, eventData) => {
+        console.log(event);
+        console.log(eventData)
+        return (
+                <EventScreen eventName={event} eventData={eventData} key={event}/>
+        )
+    })
+    console.log(doesThisWork)
+    console.log(teamStuff) */
+    var teamStuff = []
+    for (const key in props.teamData) {
+        teamStuff.push(<EventScreen eventName={key} eventData = {props.teamData[key]}/>)
+    }
+    console.log(teamStuff);
     return (
     <div>
         <Head>
@@ -18,7 +37,9 @@ export default function Team(props) {
         </Head>
     <Navbar/>
     <TeamHeader teamNumber={props.team} imageData = {props.imageData} teamName={props.teamName} teamPhoto={props.teamPhoto}/>
-
+    <div>
+    {teamStuff}
+    </div>
     </div>)
 }
 
@@ -45,8 +66,8 @@ export const getServerSideProps = async (context) => {
     const teamName = (await fetch("https://www.thebluealliance.com/api/v3/team/"+teamKey,{headers: {"X-TBA-Auth-Key":process.env.TBA}}).then((res)=>res.json()))["nickname"]
     const teamPhoto = (await fetch("https://www.thebluealliance.com/api/v3/team/"+teamKey+"/media/"+2023,{headers: {"X-TBA-Auth-Key":process.env.TBA}}).then((res)=>res.json()))[1]["direct_url"]
     const teamAwards = (await fetch("https://www.thebluealliance.com/api/v3/team/"+teamKey+"/awards/2023",{headers: {"X-TBA-Auth-Key":process.env.TBA}}).then((res)=>res.json()))
-    const teamData = (await fetch("https://statboticsbutbad.online/team/"+teamKey+"/year/2023))
-    return { props: { team, imageData, teamName, teamPhoto} }
+    const teamData = (await fetch("https://statboticsbutbad.online/team/"+teamKey+"/year/2023").then((res)=>res.json()))
+    return { props: { team, imageData, teamName, teamPhoto, teamData} }
   }
 
 

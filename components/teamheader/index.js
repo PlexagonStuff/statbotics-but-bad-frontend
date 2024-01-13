@@ -43,32 +43,33 @@ export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto}) {
 
 
     return (
-        <div className="border border-cyan-400 rounded-md max-w-none mt-16 py-8 h-96 mx-60 bg-zinc-800 flex">
-        <div>
+        <div className="flex justify-center items-center flex-col">
+        <div className="flex justify-center border border-cyan-400 rounded-md w-fit h-fit bg-zinc-800 gap-2 m-6">
+        
         <p>
         <Image
         src={"data:image/png;base64,"+ imageData}
-        className="flex ml-10 border border-cyan-400 mr-2 drop-shadow-md rounded inline-flex"
+        className="ml-10 border border-cyan-400 mr-2 drop-shadow-md rounded inline-flex"
         width = {40}
         height = {40}
         alt="This sure is a logo"
         />
         <span style={{color: useTeamColor("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/icon/color")}} className="text-3xl">{teamNumber}-{teamName}</span>
         </p>
-        <div className="flex space-x-10">
+        <div className="space-x-10">
         <img
         src={teamPhoto}
-        className="ml-10 border border-cyan-400 mt-6 drop-shadow-md rounded max-h-64 max-w-xs"
+        className="ml-10 border border-cyan-400 mt-6 drop-shadow-md rounded max-h-32 max-w-32 "
         alt="This sure is a robot photo"
         />
-        <ul className="list-none text-zinc-200 mt-6 text-2xl space-y-20">
+        <ul className="list-none text-zinc-200 mt-6 text-2xl">
             <li>Record: {useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["wins"]}-{useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["losses"]}-{useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["ties"]} </li>
             <li>Awards: {useTeamAwards("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/awards")["awards"]}  </li>
             <li>Blue Banners: {useTeamAwards("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/awards")["blueBanners"]} </li>
         </ul>
         </div>
         </div>
-        </div> 
+        </div>
 
     )
 }
