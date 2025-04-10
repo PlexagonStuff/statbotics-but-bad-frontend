@@ -66,7 +66,7 @@ export const getServerSideProps = async (context) => {
     const teamName = (await fetch("https://www.thebluealliance.com/api/v3/team/"+teamKey,{headers: {"X-TBA-Auth-Key":process.env.TBA}}).then((res)=>res.json()))["nickname"]
     const teamPhoto = (await fetch("https://www.thebluealliance.com/api/v3/team/"+teamKey+"/media/"+2023,{headers: {"X-TBA-Auth-Key":process.env.TBA}}).then((res)=>res.json()))[1]["direct_url"]
     const teamAwards = (await fetch("https://www.thebluealliance.com/api/v3/team/"+teamKey+"/awards/2023",{headers: {"X-TBA-Auth-Key":process.env.TBA}}).then((res)=>res.json()))
-    const teamData = (await fetch("https://statboticsbutbad.online/team/"+teamKey+"/year/2023").then((res)=>res.json()))
+    const teamData = (await fetch("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023").then((res)=>res.json()))
     return { props: { team, imageData, teamName, teamPhoto, teamData} }
   }
 
