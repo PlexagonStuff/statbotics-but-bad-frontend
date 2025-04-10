@@ -54,7 +54,7 @@ export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto}) {
         height = {40}
         alt="This sure is a logo"
         />
-        <span style={{color: useTeamColor("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/icon/color")}} className="text-3xl">{teamNumber}-{teamName}</span>
+        <span style={{color: useTeamColor("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023/icon/color")}} className="text-3xl">{teamNumber}-{teamName}</span>
         </p>
         <div className="space-x-10">
         <img
@@ -63,9 +63,9 @@ export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto}) {
         alt="This sure is a robot photo"
         />
         <ul className="list-none text-zinc-200 mt-6 text-2xl">
-            <li>Record: {useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["wins"]}-{useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["losses"]}-{useTeamRecord("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/record")["ties"]} </li>
-            <li>Awards: {useTeamAwards("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/awards")["awards"]}  </li>
-            <li>Blue Banners: {useTeamAwards("https://statboticsbutbad.online/team/"+teamKey+"/year/2023/awards")["blueBanners"]} </li>
+            <li>Record: {useTeamRecord("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023/record")["wins"]}-{useTeamRecord("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023/record")["losses"]}-{useTeamRecord("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023/record")["ties"]} </li>
+            <li>Awards: {useTeamAwards("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023/awards")["awards"]}  </li>
+            <li>Blue Banners: {useTeamAwards("https://statbotics-but-bad-production.up.railway.app/team/"+teamKey+"/year/2023/awards")["blueBanners"]} </li>
         </ul>
         </div>
         </div>
