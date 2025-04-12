@@ -59,7 +59,8 @@ export function TeamHeader ({teamNumber, imageData, teamName, teamPhoto}) {
         <div className="space-x-10">
         <img
         src={teamPhoto}
-        className="ml-10 border border-cyan-400 mt-6 drop-shadow-md rounded max-h-32 max-w-32 "
+        className="ml-10 border border-cyan-400 mt-6 drop-shadow-md rounded"
+        style={{ maxHeight: '50%', maxWidth: '50%' }}
         alt="This sure is a robot photo"
         />
         <ul className="list-none text-zinc-200 mt-6 text-2xl">

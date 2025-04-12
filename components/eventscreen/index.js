@@ -10,7 +10,12 @@ export function EventScreen({eventName, eventData}) {
     return (
         <div>
             <div class = "relative w-full px-5 bg-zinc-800">
-                <p> hello!</p>
+                <table>
+                    <tbody>
+                     
+                    </tbody>
+                </table>
+                <p>{Object.keys(eventData)}</p>
             </div>
         </div>
     )

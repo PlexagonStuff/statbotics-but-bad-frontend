@@ -20,7 +20,7 @@ export function Navbar () {
         </Link>
         <div className="flex ml-10"></div>
         <a
-              href="https://statboticsbutbad.online/docs"
+              href="https://statbotics-but-bad-production.up.railway.app/docs"
               target="_blank"
               aria-label="API"
               className="flex text-2xl text-cyan-600 font-medium"
