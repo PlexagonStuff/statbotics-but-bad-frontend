@@ -27,12 +27,10 @@ export default function Index() {
     var tBody = document.getElementById("tableBody");
     var tList = document.createElement("tr");
     for (var data in response) {
-      if (data == "alliance" || data == "totalScore" || data =="autoScore" || data == "teleopScore" || data == "bargeScore") {
         var tData = document.createElement("td");
         tData.textContent = response[data].toString();
         tData.className = "border border-cyan-400 p-2"
         tList.appendChild(tData);
-      }
     }
     tBody.appendChild(tList);
   }
@@ -64,6 +62,16 @@ export default function Index() {
           <th className="border border-cyan-400 p-2">Auto Score</th>
           <th className="border border-cyan-400 p-2">Teleop Score</th>
           <th className="border border-cyan-400 p-2">Barge Score</th>
+          <th className="border border-cyan-400 p-2">Auto L4</th>
+          <th className="border border-cyan-400 p-2">Auto L3</th>
+          <th className="border border-cyan-400 p-2">Auto L2</th>
+          <th className="border border-cyan-400 p-2">Auto L1</th>
+          <th className="border border-cyan-400 p-2">Total L4</th>
+          <th className="border border-cyan-400 p-2">Total L3</th>
+          <th className="border border-cyan-400 p-2">Total L2</th>
+          <th className="border border-cyan-400 p-2">Total L1</th>
+          <th className="border border-cyan-400 p-2">Processor Algae</th>
+          <th className="border border-cyan-400 p-2">Net Algae</th>
         </tr>
       </thead>
       <tbody id="tableBody">
